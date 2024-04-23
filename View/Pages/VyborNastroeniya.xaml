@@ -25,7 +25,7 @@
         </Grid.RowDefinitions>
         <Button IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
 Style="{StaticResource MaterialDesignFlatSecondaryMidBgButton}"
-ToolTip="MaterialDesignFlatSecondaryMidBgButton" Grid.Column="6">
+ToolTip="MaterialDesignFlatSecondaryMidBgButton" Grid.Column="6" Click="SaveAndExit" >
             <materialDesign:PackIcon Kind="ContentSave" />
         </Button>
         <Button Content="&lt;--" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"

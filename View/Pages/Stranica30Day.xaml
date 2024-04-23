@@ -77,6 +77,11 @@ ToolTip="MaterialDesignFlatSecondaryMidBgButton" Click="Button_Click"/>
             </Border.Triggers>
         </Border>
         <WrapPanel x:Name="DayPanel" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="1" Grid.RowSpan="6" MouseLeftButtonDown="DayPanel_MouseLeftButtonDown" MouseRightButtonDown="DayPanel_MouseRightButtonDown"  >
+            <UserControl>
+                <StackPanel>
+                    <Image Source="{Binding FirstSelectedItemIcon}"/>
+                </StackPanel>
+            </UserControl>
             <TextBlock x:Name="daytext" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </WrapPanel>
         <StackPanel  Grid.Column="1" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Top">
@@ -111,7 +116,7 @@ ToolTip="MaterialDesignFlatSecondaryMidBgButton" Click="Button_Click"/>
         </StackPanel>
         <Ellipse Name="ball" Stroke="Black"  Width="50" Height="50" Canvas.Left="130" Canvas.Bottom="0" Grid.Row="6" Grid.Column="6">
             <Ellipse.Fill>
-                <RadialGradientBrush RadiusX="1" RadiusY="1" GradientOrigin="0.3, 0.3">
+                <RadialGradientBrush RadiusX="1" RadiusY="1" GradientOrigin="0.1, 0.1">
                     <GradientStop Color="Green" Offset="0" />
                     <GradientStop Color="Blue" Offset="1" />
                 </RadialGradientBrush>

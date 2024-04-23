@@ -1,6 +1,7 @@
 ﻿using CalendarEmocia.View.Pages;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,8 +34,11 @@ namespace CalendarEmocia
         private void ReturnVCalendar(object sender, RoutedEventArgs e)
         {
             perexod();
-
         }
 
+        private void SaveAndExit(object sender, RoutedEventArgs e)
+        {
+            perexod();
+        }
     }
 }

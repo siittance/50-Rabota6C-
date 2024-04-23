@@ -1,6 +1,7 @@
 ﻿using CalendarEmocia.View.UserInreface;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -25,8 +26,6 @@ namespace CalendarEmocia.View.Pages
     public partial class Stranica30Day : Page
     {
         private DateTime date = DateTime.Now;
-        private TranslateTransform translateTransform;
-
         public Stranica30Day()
         {
             InitializeComponent();
@@ -100,5 +99,6 @@ namespace CalendarEmocia.View.Pages
         {
             VyborKakoiTiSegodnya.Content = new VyborNastroeniya();
         }
+        
     }
 }
