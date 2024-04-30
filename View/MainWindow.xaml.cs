@@ -21,6 +21,7 @@ namespace CalendarEmocia
     /// </summary>
     public partial class MainWindow : Window
     {
+        DateTime date = DateTime.Now;
         public MainWindow()
         {
             InitializeComponent();

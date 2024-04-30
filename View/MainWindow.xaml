@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:CalendarEmocia"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="450">
-    <Grid>
-        <Frame x:Name="FrameStranica31Day"/>
+    <Grid Background="LightSteelBlue">
+        <Frame x:Name="FrameStranica31Day" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

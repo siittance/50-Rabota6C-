@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalendarEmocia.View.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -23,10 +24,40 @@ namespace CalendarEmocia.View.UserInreface
     {
 
         public string Icon { get; set; }
-        public Iconcka()
+        DateTime date1 = DateTime.Now;
+        public Iconcka(DateTime date)
         {
             InitializeComponent();
             DataContext = this;
+            date1 = date;
         }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ((Application.Current.MainWindow as MainWindow).FrameStranica31Day.Content as Stranica30Day).VyborKakoiTiSegodnya.Content = new VyborNastroeniya(date1);
+
+        }
+
+        private void KnopkaDate_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ContextMenu contextMenu = new ContextMenu();
+
+            MenuItem viewItem = new MenuItem { Header = "Просмотреть" };
+            MenuItem clearItem = new MenuItem { Header = "Очистить" };
+
+            contextMenu.Items.Add(viewItem);
+            contextMenu.Items.Add(clearItem);
+
+            viewItem.Click += ViewItem_Click;
+            contextMenu.IsOpen = true;
+
+            
+        }
+
+        private void ViewItem_Click(object sender, RoutedEventArgs e)
+        {
+            ((Application.Current.MainWindow as MainWindow).FrameStranica31Day.Content as Stranica30Day).VyborKakoiTiSegodnya.Content = new VyborNastroeniya(date1);
+        }
+
     }
 }

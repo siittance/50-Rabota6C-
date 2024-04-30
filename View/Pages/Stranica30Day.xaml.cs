@@ -31,15 +31,8 @@ namespace CalendarEmocia.View.Pages
             InitializeComponent();
             Refresh();
             UpdateMonthYearTextBlock();
-
-            DayPanel.MouseLeftButtonDown += DayPanel_MouseLeftButtonDown;
-            DayPanel.MouseRightButtonDown += DayPanel_MouseRightButtonDown;
         }
 
-        public void perexodkvybory()
-        {
-            VyborKakoiTiSegodnya.Content = new VyborNastroeniya(); //переход к выбору
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)//кнопка месяц назад
         {
@@ -68,37 +61,13 @@ namespace CalendarEmocia.View.Pages
             daytext.Text = date.ToString();
             for (int i = 1; i <= DateTime.DaysInMonth(date.Year, date.Month); i++)
             {
-                Iconcka icon = new Iconcka();
+
+                Iconcka icon = new Iconcka(new DateTime(date.Year, date.Month, i));
                 icon.Icon = i.ToString();
 
                 DayPanel.Children.Add(icon);
             }
         }
-
-        private void DayPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            VyborKakoiTiSegodnya.Content = new VyborNastroeniya();
-        }
-
-        private void DayPanel_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            ContextMenu contextMenu = new ContextMenu();
-
-            MenuItem viewItem = new MenuItem { Header = "Просмотреть" };
-            MenuItem clearItem = new MenuItem { Header = "Очистить" };
-
-            contextMenu.Items.Add(viewItem);
-            contextMenu.Items.Add(clearItem);
-
-            viewItem.Click += ViewItem_Click;
-
-            contextMenu.IsOpen = true;
-        }
-
-        private void ViewItem_Click(object sender, RoutedEventArgs e)
-        {
-            VyborKakoiTiSegodnya.Content = new VyborNastroeniya();
-        }
-        
+     
     }
 }

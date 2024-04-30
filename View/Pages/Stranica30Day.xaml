@@ -5,8 +5,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="500"
-      Title="Stranica30Day" Width="450">
+      d:DesignHeight="500" d:DesignWidth="450"
+      Title="Stranica30Day">
 
     <Page.Resources>
         <Style x:Key="TransparentButtonStyle" TargetType="Button">
@@ -42,6 +42,8 @@
             <RowDefinition Height="75"/>
             <RowDefinition Height="75"/>
             <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <Button  Content="-->" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
 Style="{StaticResource MaterialDesignFlatSecondaryMidBgButton}"
@@ -49,8 +51,8 @@ ToolTip="MaterialDesignFlatSecondaryMidBgButton" Grid.Column="6" Click="Button_C
         <Button Content="&lt;--" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
 Style="{StaticResource MaterialDesignFlatSecondaryMidBgButton}"
 ToolTip="MaterialDesignFlatSecondaryMidBgButton" Click="Button_Click"/>
-        <Border Background="LightSteelBlue" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="4" Margin="0,38,0,38" Grid.RowSpan="2">
-            <TextBlock Text="Зачилься"  Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <Border Background="LightSteelBlue" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="4">
+            <TextBlock Text="Зачилься" TextWrapping="Wrap" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
             <Border.Triggers>
                 <EventTrigger RoutedEvent="Border.MouseDown">
                     <EventTrigger.Actions>
@@ -76,14 +78,16 @@ ToolTip="MaterialDesignFlatSecondaryMidBgButton" Click="Button_Click"/>
                 </EventTrigger>
             </Border.Triggers>
         </Border>
-        <WrapPanel x:Name="DayPanel" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="1" Grid.RowSpan="6" MouseLeftButtonDown="DayPanel_MouseLeftButtonDown" MouseRightButtonDown="DayPanel_MouseRightButtonDown"  >
-            <UserControl>
-                <StackPanel>
-                    <Image Source="{Binding FirstSelectedItemIcon}"/>
-                </StackPanel>
-            </UserControl>
-            <TextBlock x:Name="daytext" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </WrapPanel>
+        <ListBox Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="7" x:Name="DataListbox">
+            <WrapPanel x:Name="DayPanel" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="1" Grid.RowSpan="6">
+                <UserControl>
+                    <StackPanel>
+                        <Image Source="{Binding FirstSelectedItemIcon}"/>
+                    </StackPanel>
+                </UserControl>
+                <TextBlock x:Name="daytext" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </WrapPanel>
+        </ListBox>
         <StackPanel  Grid.Column="1" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Top">
             <TextBlock Style="{StaticResource MaterialDesignBody1TextBlock}" x:Name="MonthYearTextBlock"/>
         </StackPanel>
@@ -112,7 +116,6 @@ ToolTip="MaterialDesignFlatSecondaryMidBgButton" Click="Button_Click"/>
                     <RotateTransform/>
                 </Button.RenderTransform>
             </Button>
-        
         </StackPanel>
         <Ellipse Name="ball" Stroke="Black"  Width="50" Height="50" Canvas.Left="130" Canvas.Bottom="0" Grid.Row="6" Grid.Column="6">
             <Ellipse.Fill>
@@ -133,6 +136,6 @@ ToolTip="MaterialDesignFlatSecondaryMidBgButton" Click="Button_Click"/>
                 </EventTrigger>
             </Ellipse.Triggers>
         </Ellipse>
-        <Frame x:Name="VyborKakoiTiSegodnya"  Grid.ColumnSpan="8" Grid.RowSpan="7"/>
+        <Frame x:Name="VyborKakoiTiSegodnya"  Grid.ColumnSpan="8" Grid.RowSpan="7" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>
